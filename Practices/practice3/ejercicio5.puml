@@ -1,0 +1,51 @@
+@startuml
+class cliente{
+    -nombre: String 
+    -direccion : String 
+    -numTelefonico: int 
+    -descuentosAplicables: lista<int>
+    -difCuentas: lista<int>
+}
+class sistema{
+    - servicios: lista<String>
+    - precios: lista<int>
+    + GetClientes()
+    + GetServicios()
+    + efectuarCobro()
+}
+class cuenta{
+    -datos: String
+    -activa: Boolean
+    -servicios: lista<servicio>
+    -facturas: lista<factura>
+    +obtenerEventosDisponibles()
+    +ImprimirFacturasAPagar()
+}
+class servicio{
+    -comienzoSuscrip: String
+    -finSuscrip: String
+    -precioPaquete: int
+    +getServicio()
+}
+servicioBasico--o cuenta
+class servicioBasico{
+    +ifActiva()
+}
+payPerView o-- servicio
+class payPerView{
+    -Comienzo: String
+    -Final: String
+    -precioEvento : int
+}
+class factura{
+    -precio: int 
+    -especificacion: String
+    + CalcularCobro()
+
+}
+cliente --> cuenta
+cuenta --> servicio
+cuenta --> factura
+sistema o-- cliente
+sistema --> servicio
+@enduml

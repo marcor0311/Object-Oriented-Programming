@@ -1,0 +1,27 @@
+@startuml
+class partida{
+    -jugadas : lista<Strings>
+    +movimientos()
+}
+partida*-- tablero
+tablero*-- pieza
+tablero<|-- pieza
+partida<|-- tablero
+class tablero{
+    -piezas : piezasTablero [][]
+    +getTablero()
+}
+
+class pieza{
+    -fichasBlancas: String
+    -fichasNegras: String
+    +movimiento()
+    +getColor()
+}
+pieza<|-- caballo 
+pieza<|-- alfil 
+pieza<|-- reina
+pieza<|-- rey 
+pieza<|-- torre 
+pieza<|-- peon
+@enduml

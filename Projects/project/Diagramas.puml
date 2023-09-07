@@ -1,0 +1,48 @@
+@startuml
+class InitializeSimpletron{
+    +main(String[] args)
+}
+
+class Simpletron{
+    memory: Memory
+    -readInstructions()
+    -executeInstructions()
+}
+
+class Memory{
+    +memoryInstructions: int[]
+    +accumulator: int
+    +branch: int
+    +specialResgister: int
+    +addMemory(count: int, memoryLocation: int)
+    +loadInstructionMemory(count: int)
+}
+
+class Operation{
+    -operando: int
+    -codigo: int
+    +operations(memory: int[], accumulator: int, specialRegister): int[]
+}
+
+note top of InitializeSimpletron
+    Esta clase se encarga de inicializar Simpletron
+end note
+
+note top of Simpletron
+    Lee y guarda las instrucciones y lleva un conteo de su ejecución
+end note
+
+note top of Memory
+    Guarda las instrucciones y lleva los valores del acumulador
+end note
+
+note top of Operation
+    Ejecuta las instrucciones
+end note
+
+
+
+InitializeSimpletron ..> Simpletron
+Simpletron .. Memory
+Memory .. "1..*" Operation
+@enduml

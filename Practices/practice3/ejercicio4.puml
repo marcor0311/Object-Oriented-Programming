@@ -1,0 +1,44 @@
+@startuml
+usuario--|> sistema
+usuario*-- sistema
+class usuario{
+    -usuarioNombre: String
+    -contraseña: String
+    +verificar()
+}
+class sistema {
+    carrito: listaCarrito<libros>
+    +annadir(libro)
+    +eleminar(libro)
+    +solicitarFactura()
+    +mostrarEstadisticas()
+    -Pedido()
+}
+
+class estadisticas{
+    -bestSeller: lista<libros> 
+    -bestSellerGenero: lista<libros> 
+    - mejoresAutores: lista<Autores>
+    - peoresAutores: lista<Autores>
+    + getLibrosClientes(articulo)
+    + getEstadisticas()
+
+
+}
+class factura{
+    -listaFechas : lista<Fecha>
+    -precioLibros: int
+
+
+}
+class libro{
+    -disponible: Boolean
+    -precio : int
+    -stock: int
+    +getArticulo()
+}
+sistema --|> libro
+sistema --|> factura
+sistema o-- estadisticas
+sistema--|> estadisticas
+@enduml

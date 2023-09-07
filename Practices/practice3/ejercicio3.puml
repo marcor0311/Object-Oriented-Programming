@@ -1,0 +1,31 @@
+@startuml
+class automatizacionAlquiler{
+    -vehiculos: arrayList<vehiculosAlquiler>
+    +rellenarHoja()
+    +almacenarHoja()
+    +aprobarAlquiler()
+    -cobrarPago()
+}
+automatizacionAlquiler*-- hojaDatos
+hojaDatos<|-- automatizacionAlquiler
+cliente<|-- automatizacionAlquiler
+vehiculo<|-- automatizacionAlquiler
+cliente o-- vehiculo
+
+class hojaDatos{
+    -fechaHora: String
+    -huboIncidencias: lista<String>
+}
+class cliente{
+    -listaALquilados: lista<vehiculo>
+    -infoPersonal: String 
+
+    
+}
+class vehiculo{
+    - informacionVehiculo: String
+    - disponible: Boolean
+    +alquilarVehiculo()
+
+}
+@enduml

@@ -1,0 +1,25 @@
+@startuml
+class monitor{
+    -ArrayList<Nodo>
+    +Anadir()
+    +Quitar()
+
+}
+monitor*-- Redes
+class Nodo {
+    -valor: int
+    -getID()
+    +reconfigurar()
+}
+
+monitor..|>Nodo
+Redes*-- Nodo
+class Redes {
+    -id : int
+    +get()
+    +set()
+}
+Redes<|-- Bus 
+Redes<|-- Estrella 
+Redes<|-- Anillo
+@enduml

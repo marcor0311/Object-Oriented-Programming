@@ -1,0 +1,43 @@
+@startuml 
+class sistema{
+    +crearCuenta()
+    +iniciarSesion()
+    -validarSesion()
+    +ObtenerEstadisticas()
+}
+class usuario{
+    -apellido: String
+    -nombre: String 
+    -usuario: String 
+    -correo: String 
+    -temas: lista<String>
+}
+class estadisticas{
+    -usuariosPregunta: lista<int>
+    -usuariosEncuestaTema: lista<int>
+    +getEstadisticas()
+}
+class cuenta{
+    -usuario: String
+    -contrasenna: String
+}
+class cuestionario{
+    -tema: String
+    -preguntas : lista<Strings>
+    -respuestas: lista<int>
+    +agregarPregunta()
+    +eliminarPregunta()
+}
+class pregunta{
+    -numRespuestas: int
+    -seleccionPosibles: int 
+    +getRespuestas()
+}
+sistema --> usuario
+usuario--> cuenta
+sistema --> cuestionario
+cuestionario --> pregunta
+sistema o-- estadisticas
+estadisticas --> pregunta
+estadisticas --> cuestionario
+@enduml
