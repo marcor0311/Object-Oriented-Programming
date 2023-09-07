@@ -11,4 +11,4 @@ This course provided knowledge of concepts, tools, and techniques necessary for 
 
 ## Implementation
 
-It's important to note that all course concepts and examples were practically implemented using Java
+It's important to note that all course concepts and examples were implemented using Java
